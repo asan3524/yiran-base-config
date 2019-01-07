@@ -13,6 +13,6 @@ eureka:
     lease-renewal-interval-in-seconds: 10
     non-secure-port: 8989
 turbine:
-  app-config: spring-boot-demo
+  app-config: spring-boot-demo,ddsh-base-eureka-server,ddsh-base-config-server
   clusterNameExpression: "'default'"
   
