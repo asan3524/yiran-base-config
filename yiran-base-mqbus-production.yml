@@ -18,7 +18,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://admin:admin@yiran-base-eureka-server-s1.base.svc.cluster.local:8761/eureka/, http://admin:admin@yiran-base-eureka-server-s2.base.svc.cluster.local:${server.port}/eureka/
+      defaultZone: http://admin:admin@yiran-base-eureka-s1.base.svc.cluster.local:8761/eureka/, http://admin:admin@yiran-base-eureka-s2.base.svc.cluster.local:${server.port}/eureka/
 
 logging:
   level:

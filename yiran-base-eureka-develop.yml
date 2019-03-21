@@ -31,7 +31,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://admin:admin@yiran-base-eureka-server-s2.base.svc.cluster.local:${server.port}/eureka/
+      defaultZone: http://admin:admin@yiran-base-eureka-s2.base.svc.cluster.local:${server.port}/eureka/
 ---
 spring:
   profiles: s2
@@ -40,7 +40,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://admin:admin@yiran-base-eureka-server-s1.base.svc.cluster.local:${server.port}/eureka/
+      defaultZone: http://admin:admin@yiran-base-eureka-s1.base.svc.cluster.local:${server.port}/eureka/
 
 #---
 #spring:
@@ -50,5 +50,5 @@ eureka:
 #    register-with-eureka: true
 #    fetch-registry: true
 #    service-url:
-#      defaultZone: http://admin:admin@yiran-base-eureka-server-s1.base.svc.cluster.local:${server.port}/eureka/, http://admin:admin@yiran-base-eureka-server-s3.base.svc.cluster.local:${server.port}/eureka/
+#      defaultZone: http://admin:admin@yiran-base-eureka-s1.base.svc.cluster.local:${server.port}/eureka/, http://admin:admin@yiran-base-eureka-s3.base.svc.cluster.local:${server.port}/eureka/
       
