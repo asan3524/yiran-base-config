@@ -1,0 +1,25 @@
+# 单机模式配置
+---
+spring:
+  profiles: develop
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@127.0.0.1:8761/eureka/
+      
+logging:
+  level:
+    org.springframework.web: INFO
+
+# 集群模式配置
+---
+spring:
+  profiles: production
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@yiran-base-eureka-server-s1.base.svc.cluster.local:8761/eureka/, http://admin:admin@yiran-base-eureka-server-s2.base.svc.cluster.local:${server.port}/eureka/
+
+logging:
+  level:
+    org.springframework.web: INFO    
