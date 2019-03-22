@@ -1,7 +1,4 @@
 # 单机模式配置
----
-spring:
-  profiles: develop
 eureka:
   instance:
     prefer-ip-address: true
@@ -13,42 +10,4 @@ eureka:
 logging:
   level:
     org.springframework.web: INFO
-
-# 集群模式配置
----
-spring:
-  profiles: production
-
-logging:
-  level:
-    org.springframework.web: INFO
-
----
-spring:
-  profiles: s1 
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://admin:admin@yiran-base-eureka-s2.base.svc.cluster.local:${server.port}/eureka/
----
-spring:
-  profiles: s2
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://admin:admin@yiran-base-eureka-s1.base.svc.cluster.local:${server.port}/eureka/
-
-#---
-#spring:
-#  profiles: s3
-#eureka:
-#  client:
-#    register-with-eureka: true
-#    fetch-registry: true
-#    service-url:
-#      defaultZone: http://admin:admin@yiran-base-eureka-s1.base.svc.cluster.local:${server.port}/eureka/, http://admin:admin@yiran-base-eureka-s3.base.svc.cluster.local:${server.port}/eureka/
       
