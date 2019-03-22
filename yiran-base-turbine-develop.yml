@@ -19,7 +19,7 @@ eureka:
     lease-renewal-interval-in-seconds: 10
     non-secure-port: ${PORT:8989}
 turbine:
-  app-config: test,test1,test2
+  app-config: demo
   clusterNameExpression: "'default'"
       
 logging:
