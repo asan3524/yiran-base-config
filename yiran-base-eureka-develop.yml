@@ -1,4 +1,9 @@
 # 单机模式配置
+spring:
+  cloud:
+    bus:
+      ack:
+        destination-service: yiran-base-eureka
 eureka:
   instance:
     prefer-ip-address: true
