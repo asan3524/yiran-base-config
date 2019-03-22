@@ -5,7 +5,11 @@ management:
     web:
       exposure:
         include: health, info, bus-refresh
-
+spring:
+  cloud:
+    bus:
+      ack:
+        destination-service: yiran-base-trubine
 # 单机模式配置
 ---
 spring:
