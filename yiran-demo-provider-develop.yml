@@ -46,13 +46,7 @@ security:
     resource:
       user-info-uri: http://127.0.0.1:8887/user/
     authorization:
-      matchers: 
-        - /swagger-ui.html
-        - /webjars/**
-        - /swagger-resources/**
-        - /v2/api-docs
-        - /static/**
-        - /druid/**
+      matchers: /swagger-ui.html, /webjars/**, /swagger-resources/**, /v2/api-docs, /static/**, /druid/**
         
 logging:
   level:
