@@ -1,25 +1,28 @@
 management:
  server:
     port: 8990
- endpoints:
-    web:
-      exposure:
-        include: health, info, refresh, bus
-
+spring:
+  cloud:
+    bus:
+      ack:
+        destination-service: ${spring.application.name}
 # 单机模式配置
 ---
 spring:
   profiles: develop
 
 eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true  
+    lease-renewal-interval-in-seconds: 10
+    non-secure-port: ${PORT:8989}
   client:
     service-url:
       defaultZone: http://admin:admin@127.0.0.1:8761/eureka/
-  instance:
-    lease-renewal-interval-in-seconds: 10
-    non-secure-port: ${PORT:8989}
+
 turbine:
-  app-config: spring-boot-demo
+  app-config: demo
   clusterNameExpression: "'default'"
       
 logging:
@@ -32,9 +35,15 @@ spring:
   profiles: production
 
 eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true  
+    lease-renewal-interval-in-seconds: 10
+    non-secure-port: ${PORT:8989}
   client:
     service-url:
       defaultZone: http://admin:admin@yiran-base-eureka-s1.base.svc.cluster.local:8761/eureka/, http://admin:admin@yiran-base-eureka-s2.base.svc.cluster.local:8761/eureka/
+
 turbine:
   app-config: spring-boot-demo
   clusterNameExpression: "'default'"

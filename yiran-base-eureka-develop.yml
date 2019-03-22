@@ -1,11 +1,14 @@
-# 单机模式配置
+# 单机模式，关闭自我保护
 spring:
   cloud:
     bus:
       ack:
-        destination-service: yiran-base-eureka
+        destination-service: ${spring.application.name}
 eureka:
+  server:
+    enable-self-preservation: false
   instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
     prefer-ip-address: true
   client:
     register-with-eureka: false
@@ -15,4 +18,3 @@ eureka:
 logging:
   level:
     org.springframework.web: INFO
-      

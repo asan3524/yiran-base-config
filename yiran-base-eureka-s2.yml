@@ -1,6 +1,17 @@
+spring:
+  cloud:
+    bus:
+      ack:
+        destination-service: ${spring.application.name}
 eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
       defaultZone: http://admin:admin@yiran-base-eureka-s1.base.svc.cluster.local:${server.port}/eureka/
+logging:
+  level:
+    org.springframework.web: INFO
