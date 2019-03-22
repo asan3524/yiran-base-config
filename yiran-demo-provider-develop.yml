@@ -1,0 +1,74 @@
+spring:
+  cloud:
+    bus:
+      ack:
+        destination-service: ${spring.application.name}
+# 单机模式配置
+---
+spring:
+  profiles: develop
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true  
+  client:
+    service-url:
+      defaultZone: http://admin:admin@127.0.0.1:8761/eureka/
+   
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://127.0.0.1:8887/user/
+spring:
+  jpa:
+    database: mysql
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://114.67.224.99:3306/microservice?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
+    username: microservice
+    password: bitlife_microservice_888T3!
+logging:
+  level:
+    org.springframework.web: INFO
+    root: INFO
+    org.hibernate: INFO
+
+# 集群模式配置
+---
+spring:
+  profiles: production
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true  
+  client:
+    service-url:
+      defaultZone: http://admin:admin@yiran-base-eureka-s1.base.svc.cluster.local:8761/eureka/, http://admin:admin@yiran-base-eureka-s2.base.svc.cluster.local:8761/eureka/
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/user/
+spring:
+  jpa:
+    database: mysql
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://114.67.224.99:3306/microservice?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
+    username: microservice
+    password: bitlife_microservice_888T3!
+logging:
+  level:
+    org.springframework.web: INFO
+    root: INFO
+    org.hibernate: INFO
