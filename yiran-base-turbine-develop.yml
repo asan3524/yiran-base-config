@@ -1,0 +1,44 @@
+management:
+ server:
+    port: 8990
+ endpoints:
+    web:
+      exposure:
+        include: health, info, refresh, bus
+
+# 单机模式配置
+---
+spring:
+  profiles: develop
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@127.0.0.1:8761/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 10
+    non-secure-port: ${PORT:8989}
+turbine:
+  app-config: spring-boot-demo
+  clusterNameExpression: "'default'"
+      
+logging:
+  level:
+    org.springframework.web: DEBUG
+
+# 集群模式配置
+---
+spring:
+  profiles: production
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@yiran-base-eureka-s1.base.svc.cluster.local:8761/eureka/, http://admin:admin@yiran-base-eureka-s2.base.svc.cluster.local:8761/eureka/
+turbine:
+  app-config: spring-boot-demo
+  clusterNameExpression: "'default'"
+  
+logging:
+  level:
+    org.springframework.web: INFO    
