@@ -4,7 +4,7 @@ management:
  endpoints:
     web:
       exposure:
-        include: health, info, refresh, bus
+        include: health, info, bus-refresh
 
 # 单机模式配置
 ---
