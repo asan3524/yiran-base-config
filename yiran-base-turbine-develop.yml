@@ -16,6 +16,8 @@ eureka:
     service-url:
       defaultZone: http://admin:admin@127.0.0.1:8761/eureka/
   instance:
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+    prefer-ip-address: true
     lease-renewal-interval-in-seconds: 10
     non-secure-port: ${PORT:8989}
 turbine:
@@ -35,6 +37,11 @@ eureka:
   client:
     service-url:
       defaultZone: http://admin:admin@yiran-base-eureka-s1.base.svc.cluster.local:8761/eureka/, http://admin:admin@yiran-base-eureka-s2.base.svc.cluster.local:8761/eureka/
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+    non-secure-port: ${PORT:8989}
 turbine:
   app-config: spring-boot-demo
   clusterNameExpression: "'default'"
