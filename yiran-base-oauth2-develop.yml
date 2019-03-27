@@ -14,7 +14,11 @@ eureka:
       defaultZone: http://admin:admin@127.0.0.1:8761/eureka/
   instance:
     instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
-    prefer-ip-address: true    
+    prefer-ip-address: true
+# 使用feign+hystrix断路时必须增加以下配置，否则不会生效
+feign:
+  hystrix:
+    enabled: true
 logging:
   level:
     org.springframework.web: INFO
@@ -30,7 +34,10 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
     prefer-ip-address: true 
-    
+# 使用feign+hystrix断路时必须增加以下配置，否则不会生效
+feign:
+  hystrix:
+    enabled: true  
 logging:
   level:
     org.springframework.web: INFO    
