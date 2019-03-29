@@ -3,11 +3,28 @@ spring:
     bus:
       ack:
         destination-service: ${spring.application.name}
-        
+
+server:
+  session:
+    cookie:
+      name: OAUTH2SESSION
+      
 # 单机模式配置
 ---
 spring:
   profiles: develop
+
+  redis:
+    host: 192.168.40.161
+    port: 30379
+
+security:
+  oauth2:
+    authorization:
+      loginurl: /login
+      deniedurl: /deny
+      matchers: /images/**, /checkcode, /scripts/**, /styles/**
+
 eureka:
   client:
     service-url:
@@ -15,6 +32,7 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
     prefer-ip-address: true
+
 # 使用feign+hystrix断路时必须增加以下配置，否则不会生效
 feign:
   hystrix:
@@ -27,6 +45,18 @@ logging:
 ---
 spring:
   profiles: production
+
+  redis:
+    host: 192.168.40.161
+    port: 30379
+
+security:
+  oauth2:
+    authorization:
+      loginurl: /login
+      deniedurl: /deny
+      matchers: /images/**, /checkcode, /scripts/**, /styles/**
+
 eureka:
   client:
     service-url:
@@ -34,6 +64,7 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
     prefer-ip-address: true 
+
 # 使用feign+hystrix断路时必须增加以下配置，否则不会生效
 feign:
   hystrix:
