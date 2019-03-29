@@ -43,11 +43,21 @@ eureka:
    
 security:
   oauth2:
-    resource:
-      user-info-uri: http://127.0.0.1:8887/user/
     authorization:
+      loginurl: /login
+      deniedurl: /deny
       matchers: /swagger-ui.html, /webjars/**, /swagger-resources/**, /v2/api-docs, /static/**
-        
+    client:
+      scope: webclient
+      clientId: eagleeye
+      clientSecret: thisissecret
+      accessTokenUri: http://127.0.0.1:8887/oauth/token
+      userAuthorizationUri: http://127.0.0.1:8887/oauth/authorize
+      pre-established-redirect-uri: http://127.0.0.1:8887/login
+    resource:
+      jwt:
+        key-uri: https://127.0.0.1:8887/oauth/token_key 
+             
 logging:
   level:
     org.springframework.web: INFO
@@ -93,9 +103,21 @@ eureka:
 
 security:
   oauth2:
+    authorization:
+      loginurl: /login
+      deniedurl: /deny
+      matchers: /swagger-ui.html, /webjars/**, /swagger-resources/**, /v2/api-docs, /static/**
+    client:
+      scope: webclient
+      clientId: eagleeye
+      clientSecret: thisissecret
+      accessTokenUri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token
+      userAuthorizationUri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/authorize
+      pre-established-redirect-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/login
     resource:
-      user-info-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/user/
-
+      jwt:
+        key-uri: https://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token_key 
+        
 logging:
   level:
     org.springframework.web: INFO
