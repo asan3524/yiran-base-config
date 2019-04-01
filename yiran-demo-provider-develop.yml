@@ -43,9 +43,6 @@ eureka:
    
 security:
   oauth2:
-    sso:
-      loginPath: http://127.0.0.1:8887/login
-      
     authorization:
       loginurl: /login
       deniedurl: /deny
@@ -56,7 +53,7 @@ security:
       clientSecret: thisissecret
       accessTokenUri: http://127.0.0.1:8887/oauth/token
       userAuthorizationUri: http://127.0.0.1:8887/oauth/authorize
-      pre-established-redirect-uri: http://127.0.0.1:8887/login
+      client-authentication-scheme: form
     resource:
       jwt:
         key-uri: http://127.0.0.1:8887/oauth/token_key 
@@ -106,9 +103,6 @@ eureka:
 
 security:
   oauth2:
-    sso:
-      loginPath: http://yiran-base-oauth2.base.svc.cluster.local:8887/login
-      
     authorization:
       loginurl: /login
       deniedurl: /deny
@@ -119,7 +113,7 @@ security:
       clientSecret: thisissecret
       accessTokenUri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token
       userAuthorizationUri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/authorize
-      pre-established-redirect-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/login
+      client-authentication-scheme: form
     resource:
       jwt:
         key-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token_key 
