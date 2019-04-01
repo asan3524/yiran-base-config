@@ -14,9 +14,9 @@ server:
 spring:
   profiles: develop
 
-#  redis:
-#    host: 192.168.40.161
-#    port: 30379
+  redis:
+    host: 192.168.40.161
+    port: 30379
 
 #自定义配置，配置默认登陆地址及权限例外路径等
 security:
@@ -26,11 +26,11 @@ security:
       deniedurl: /deny
       matchers: /images/**, /checkcode, /scripts/**, /styles/**
 #配置鉴权服务信息
-#    client:
-#      client-id: eagleeye
-#      client-secret: thisissecret
-#      authorized-grant-types: refresh_token, password, client_credentials
-#      scope: webclient, mobileclient
+    client:
+      client-id: eagleeye
+      client-secret: thisissecret
+      authorized-grant-types: authorization_code, refresh_token, password, client_credentials
+      scope: webclient, mobileclient
 
 eureka:
   client:
@@ -66,7 +66,7 @@ security:
     client:
       client-id: eagleeye
       client-secret: thisissecret
-      authorized-grant-types: refresh_token, password, client_credentials
+      authorized-grant-types: authorization_code, refresh_token, password, client_credentials
       scope: webclient, mobileclient
 
 eureka:

@@ -53,7 +53,7 @@ security:
       clientSecret: thisissecret
       accessTokenUri: http://127.0.0.1:8887/oauth/token
       userAuthorizationUri: http://127.0.0.1:8887/oauth/authorize
-      client-authentication-scheme: form
+      pre-established-redirect-uri: http://127.0.0.1:8887/login
     resource:
       jwt:
         key-uri: http://127.0.0.1:8887/oauth/token_key 
@@ -113,7 +113,7 @@ security:
       clientSecret: thisissecret
       accessTokenUri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token
       userAuthorizationUri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/authorize
-      client-authentication-scheme: form
+      pre-established-redirect-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/login
     resource:
       jwt:
         key-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token_key 

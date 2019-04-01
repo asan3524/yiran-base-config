@@ -29,7 +29,7 @@ security:
     client:
       client-id: eagleeye
       client-secret: thisissecret
-      authorized-grant-types: refresh_token, password, client_credentials
+      authorized-grant-types: authorization_code, refresh_token, password, client_credentials
       scope: webclient, mobileclient
 
 eureka:
@@ -66,7 +66,7 @@ security:
     client:
       client-id: eagleeye
       client-secret: thisissecret
-      authorized-grant-types: refresh_token, password, client_credentials
+      authorized-grant-types: authorization_code, refresh_token, password, client_credentials
       scope: webclient, mobileclient
 
 eureka:
