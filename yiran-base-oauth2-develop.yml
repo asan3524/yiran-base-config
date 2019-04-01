@@ -26,11 +26,11 @@ security:
       deniedurl: /deny
       matchers: /images/**, /checkcode, /scripts/**, /styles/**
 #配置鉴权服务信息
-    client:
-      client-id: eagleeye
-      client-secret: thisissecret
-      authorized-grant-types: refresh_token, password, client_credentials
-      scope: webclient, mobileclient
+#    client:
+#      client-id: eagleeye
+#      client-secret: thisissecret
+#      authorized-grant-types: refresh_token, password, client_credentials
+#      scope: webclient, mobileclient
 
 eureka:
   client:
