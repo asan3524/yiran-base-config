@@ -56,7 +56,7 @@ security:
       pre-established-redirect-uri: http://127.0.0.1:8887/login
     resource:
       jwt:
-        key-uri: https://127.0.0.1:8887/oauth/token_key 
+        key-uri: http://127.0.0.1:8887/oauth/token_key 
              
 logging:
   level:
@@ -116,7 +116,7 @@ security:
       pre-established-redirect-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/login
     resource:
       jwt:
-        key-uri: https://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token_key 
+        key-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token_key 
         
 logging:
   level:
