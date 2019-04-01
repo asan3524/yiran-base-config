@@ -43,6 +43,9 @@ eureka:
    
 security:
   oauth2:
+    sso:
+      loginPath: http://127.0.0.1:8887/login
+      
     authorization:
       loginurl: /login
       deniedurl: /deny
@@ -103,6 +106,9 @@ eureka:
 
 security:
   oauth2:
+    sso:
+      loginPath: http://yiran-base-oauth2.base.svc.cluster.local:8887/login
+      
     authorization:
       loginurl: /login
       deniedurl: /deny
