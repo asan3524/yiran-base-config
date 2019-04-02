@@ -50,7 +50,7 @@ security:
     client:
       scope: webclient
       clientId: eagleeye
-      clientSecret: $2a$10$rKja7aRhLDrGL3RrCDS1XefGlfb2spiA.YGfzU1.Ul8si2Ir/Z0G.
+      clientSecret: thisissecret
       accessTokenUri: http://127.0.0.1:8887/oauth/token
       userAuthorizationUri: http://127.0.0.1:8887/oauth/authorize
       pre-established-redirect-uri: http://127.0.0.1:8887/login
@@ -110,7 +110,7 @@ security:
     client:
       scope: webclient
       clientId: eagleeye
-      clientSecret: $2a$10$rKja7aRhLDrGL3RrCDS1XefGlfb2spiA.YGfzU1.Ul8si2Ir/Z0G.
+      clientSecret: thisissecret
       accessTokenUri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token
       userAuthorizationUri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/authorize
       pre-established-redirect-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/login
