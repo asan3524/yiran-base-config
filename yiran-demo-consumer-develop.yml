@@ -1,0 +1,109 @@
+spring:
+  cloud:
+    bus:
+      ack:
+        destination-service: ${spring.application.name}
+        
+# 单机模式配置
+---
+spring:
+  profiles: develop
+        
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true  
+  client:
+    service-url:
+      defaultZone: http://admin:admin@127.0.0.1:8761/eureka/
+   
+security:
+  oauth2:
+    authorization:
+      loginurl: /login
+      deniedurl: /deny
+      matchers: /swagger-ui.html, /webjars/**, /swagger-resources/**, /v2/api-docs, /static/**
+    client:
+      scope: webclient
+      clientId: eagleeye
+      clientSecret: thisissecret
+      accessTokenUri: http://127.0.0.1:8887/oauth/token
+      userAuthorizationUri: http://127.0.0.1:8887/oauth/authorize
+      pre-established-redirect-uri: http://127.0.0.1:8887/login
+    resource:
+      jwt:
+        key-uri: http://127.0.0.1:8887/oauth/token_key 
+             
+logging:
+  level:
+    org.springframework.web: INFO
+    root: INFO
+    org.hibernate: INFO
+
+# 使用feign+hystrix断路时必须增加以下配置，否则不会生效
+feign:
+  hystrix:
+    enabled: true
+#Hystrix THREAD模式下，feign无法找到上下文中的令牌，导致令牌无法传递
+#方案一：自定义HystrixConcurrencyStrategy
+#方案二：将线程策略设置为SEMAPHORE（官方不推荐）
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+          strategy: SEMAPHORE
+          
+# 集群模式配置
+---
+spring:
+  profiles: production
+        
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true  
+  client:
+    service-url:
+      defaultZone: http://admin:admin@yiran-base-eureka-s1.base.svc.cluster.local:8761/eureka/, http://admin:admin@yiran-base-eureka-s2.base.svc.cluster.local:8761/eureka/
+
+security:
+  oauth2:
+    authorization:
+      loginurl: /login
+      deniedurl: /deny
+      matchers: /swagger-ui.html, /webjars/**, /swagger-resources/**, /v2/api-docs, /static/**
+    client:
+      scope: webclient
+      clientId: eagleeye
+      clientSecret: thisissecret
+      accessTokenUri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token
+      userAuthorizationUri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/authorize
+      pre-established-redirect-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/login
+    resource:
+      jwt:
+        key-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token_key 
+        
+# 使用feign+hystrix断路时必须增加以下配置，否则不会生效
+feign:
+  hystrix:
+    enabled: true
+#Hystrix THREAD模式下，feign无法找到上下文中的令牌，导致令牌无法传递
+#方案一：自定义HystrixConcurrencyStrategy
+#方案二：将线程策略设置为SEMAPHORE（官方不推荐）
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+          strategy: SEMAPHORE
+                  
+logging:
+  level:
+    org.springframework.web: INFO
+    root: INFO
+    org.hibernate: INFO
