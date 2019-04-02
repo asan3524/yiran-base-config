@@ -28,7 +28,7 @@ security:
 #配置鉴权服务信息
     client:
       client-id: eagleeye
-      client-secret: thisissecret
+      client-secret: $2a$10$rKja7aRhLDrGL3RrCDS1XefGlfb2spiA.YGfzU1.Ul8si2Ir/Z0G.
       authorized-grant-types: authorization_code, refresh_token, password, client_credentials
       scope: webclient, mobileclient
 
@@ -65,7 +65,7 @@ security:
       matchers: /images/**, /checkcode, /scripts/**, /styles/**
     client:
       client-id: eagleeye
-      client-secret: thisissecret
+      client-secret: $2a$10$rKja7aRhLDrGL3RrCDS1XefGlfb2spiA.YGfzU1.Ul8si2Ir/Z0G.
       authorized-grant-types: authorization_code, refresh_token, password, client_credentials
       scope: webclient, mobileclient
 
