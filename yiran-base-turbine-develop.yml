@@ -22,7 +22,7 @@ eureka:
       defaultZone: http://admin:admin@127.0.0.1:8761/eureka/
 
 turbine:
-  app-config: demo
+  app-config: yiran-system-restapi, yiran-demo-consumer, yiran-demo-provider
   clusterNameExpression: "'default'"
       
 logging:
@@ -45,7 +45,7 @@ eureka:
       defaultZone: http://admin:admin@yiran-base-eureka-s1.base.svc.cluster.local:8761/eureka/, http://admin:admin@yiran-base-eureka-s2.base.svc.cluster.local:8761/eureka/
 
 turbine:
-  app-config: spring-boot-demo
+  app-config: yiran-system-restapi, yiran-demo-consumer, yiran-demo-provider
   clusterNameExpression: "'default'"
   
 logging:
