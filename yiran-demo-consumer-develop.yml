@@ -20,7 +20,6 @@ eureka:
 security:
   oauth2:
     authorization:
-      yiran-filter: true
       matchers: /actuator/**, /swagger-ui.html, /webjars/**, /swagger-resources/**, /v2/api-docs, /static/**
     client:
       scope: webclient
