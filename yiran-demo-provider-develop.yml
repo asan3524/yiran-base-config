@@ -70,9 +70,9 @@ yiran-system-restapi:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
            
 # 使用feign+hystrix断路时必须增加以下配置，否则不会生效
-feign:
-  hystrix:
-    enabled: true
+#feign:
+#  hystrix:
+#    enabled: true
     
 #Hystrix THREAD模式下，feign无法找到上下文中的令牌，导致令牌无法传递
 #方案一：自定义HystrixConcurrencyStrategy
