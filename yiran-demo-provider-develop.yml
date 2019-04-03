@@ -44,8 +44,7 @@ eureka:
 security:
   oauth2:
     authorization:
-      loginurl: /login
-      deniedurl: /deny
+      yiran-filter: true
       matchers: /swagger-ui.html, /webjars/**, /swagger-resources/**, /v2/api-docs, /static/**
     client:
       scope: webclient
@@ -104,8 +103,7 @@ eureka:
 security:
   oauth2:
     authorization:
-      loginurl: /login
-      deniedurl: /deny
+      yiran-filter: true
       matchers: /swagger-ui.html, /webjars/**, /swagger-resources/**, /v2/api-docs, /static/**
     client:
       scope: webclient
