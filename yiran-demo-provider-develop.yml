@@ -61,7 +61,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: *
+        include: hystrix.stream, health, info
                      
 logging:
   level:
@@ -126,7 +126,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: *
+        include: hystrix.stream, health, info
                 
 logging:
   level:
