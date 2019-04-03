@@ -44,7 +44,6 @@ eureka:
 security:
   oauth2:
     authorization:
-      yiran-filter: true
       matchers: /actuator/**, /swagger-ui.html, /webjars/**, /swagger-resources/**, /v2/api-docs, /static/**
     client:
       scope: webclient
@@ -90,8 +89,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*'
-#        include: hystrix.stream, health, info
+        include: hystrix.stream, health, info
                      
 logging:
   level:
@@ -139,7 +137,6 @@ eureka:
 security:
   oauth2:
     authorization:
-      yiran-filter: true
       matchers: /actuator/**, /swagger-ui.html, /webjars/**, /swagger-resources/**, /v2/api-docs, /static/**
     client:
       scope: webclient
@@ -185,8 +182,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*'
-#        include: hystrix.stream, health, info
+        include: hystrix.stream, health, info
                 
 logging:
   level:
