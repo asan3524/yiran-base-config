@@ -41,30 +41,30 @@ security:
 # RoundRobinRule 轮询选择server
 # RandomRule 随机选择一个server
 # ZoneAvoidanceRule 复合判断server所在区域的性能和server的可用性选择server
-#yiran-demo-provider:
-#  ribbon:
-#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
-#    
-#yiran-system-restapi:
-#  ribbon:
-#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
-#           
-## 使用feign+hystrix断路时必须增加以下配置，否则不会生效
-#feign:
-#  hystrix:
-#    enabled: true
-#    
-##Hystrix THREAD模式下，feign无法找到上下文中的令牌，导致令牌无法传递
-##方案一：自定义HystrixConcurrencyStrategy
-##方案二：将线程策略设置为SEMAPHORE（官方不推荐）
-#hystrix:
-#  command:
-#    default:
-#      execution:
-#        isolation:
-#          thread:
-#            timeoutInMilliseconds: 3000
-#          strategy: SEMAPHORE
+yiran-demo-provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+    
+yiran-system-restapi:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+           
+# 使用feign+hystrix断路时必须增加以下配置，否则不会生效
+feign:
+  hystrix:
+    enabled: true
+    
+#Hystrix THREAD模式下，feign无法找到上下文中的令牌，导致令牌无法传递
+#方案一：自定义HystrixConcurrencyStrategy
+#方案二：将线程策略设置为SEMAPHORE（官方不推荐）
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+          strategy: SEMAPHORE
 
 management:
   endpoints:
