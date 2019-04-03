@@ -65,7 +65,13 @@ hystrix:
           thread:
             timeoutInMilliseconds: 3000
           strategy: SEMAPHORE
-                       
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream, health, info
+                               
 logging:
   level:
     org.springframework.web: INFO
@@ -133,7 +139,13 @@ hystrix:
           thread:
             timeoutInMilliseconds: 3000
           strategy: SEMAPHORE
-                  
+          
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream, health, info
+                         
 logging:
   level:
     org.springframework.web: INFO

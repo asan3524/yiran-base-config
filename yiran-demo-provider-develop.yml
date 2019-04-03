@@ -56,7 +56,13 @@ security:
     resource:
       jwt:
         key-uri: http://127.0.0.1:8887/oauth/token_key 
-             
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream, health, info
+                     
 logging:
   level:
     org.springframework.web: INFO
@@ -115,7 +121,13 @@ security:
     resource:
       jwt:
         key-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token_key 
-        
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream, health, info
+                
 logging:
   level:
     org.springframework.web: INFO
