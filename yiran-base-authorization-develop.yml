@@ -14,10 +14,10 @@ server:
 spring:
   profiles: develop
 
-#  redis:
-#    host: 192.168.40.161
-#    port: 30379
-#    redisson: false
+  redis:
+    redisson: false
+    host: 192.168.40.161
+    port: 30379
 
 #自定义配置，配置默认登陆地址及权限例外路径等
 security:
