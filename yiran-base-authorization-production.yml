@@ -15,6 +15,7 @@ spring:
   profiles: develop
 
   redis:
+    redisson: false
     host: 192.168.40.161
     port: 30379
 
@@ -22,13 +23,12 @@ spring:
 security:
   oauth2:
     authorization:
-      loginurl: /login
-      deniedurl: /deny
       matchers: /images/**, /checkcode, /scripts/**, /styles/**
+      
 #配置鉴权服务信息
     client:
       client-id: eagleeye
-      client-secret: thisissecret
+      client-secret: $2a$10$rKja7aRhLDrGL3RrCDS1XefGlfb2spiA.YGfzU1.Ul8si2Ir/Z0G.
       authorized-grant-types: authorization_code, refresh_token, password, client_credentials
       scope: webclient, mobileclient
 
@@ -40,10 +40,6 @@ eureka:
     instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
     prefer-ip-address: true
 
-# 使用feign+hystrix断路时必须增加以下配置，否则不会生效
-feign:
-  hystrix:
-    enabled: true
 logging:
   level:
     org.springframework.web: INFO
@@ -54,6 +50,7 @@ spring:
   profiles: production
 
   redis:
+    redisson: false
     host: 192.168.40.161
     port: 30379
 
@@ -65,7 +62,7 @@ security:
       matchers: /images/**, /checkcode, /scripts/**, /styles/**
     client:
       client-id: eagleeye
-      client-secret: thisissecret
+      client-secret: $2a$10$rKja7aRhLDrGL3RrCDS1XefGlfb2spiA.YGfzU1.Ul8si2Ir/Z0G.
       authorized-grant-types: authorization_code, refresh_token, password, client_credentials
       scope: webclient, mobileclient
 
@@ -77,10 +74,6 @@ eureka:
     instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
     prefer-ip-address: true 
 
-# 使用feign+hystrix断路时必须增加以下配置，否则不会生效
-feign:
-  hystrix:
-    enabled: true  
 logging:
   level:
     org.springframework.web: INFO    
