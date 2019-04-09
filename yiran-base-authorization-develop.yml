@@ -58,7 +58,7 @@ security:
   oauth2:
     authorization:
       loginurl: /login
-      deniedurl: /deny
+      deniedurl: /error/403
       matchers: /images/**, /checkcode, /scripts/**, /styles/**
     client:
       client-id: eagleeye
