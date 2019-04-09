@@ -14,7 +14,7 @@ spring:
     generate-ddl: false
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://114.67.224.99:3306/microservice?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
