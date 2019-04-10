@@ -65,7 +65,9 @@ feign:
 #          thread:
 #            timeoutInMilliseconds: 3000
 #          strategy: SEMAPHORE
-
+hystrix:
+  shareSecurityContext: true
+  
 management:
   endpoints:
     web:
