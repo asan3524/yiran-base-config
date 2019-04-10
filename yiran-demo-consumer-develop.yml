@@ -65,14 +65,14 @@ feign:
 #          thread:
 #            timeoutInMilliseconds: 3000
 #          strategy: SEMAPHORE
+
 hystrix:
-  command:
-    default:
-      hystrix: 
-        shareSecurityContext: true
+  shareSecurityContext: true
   
 management:
   endpoints:
+    health:
+      show-details: always
     web:
       exposure:
         include: hystrix.stream, health, info
