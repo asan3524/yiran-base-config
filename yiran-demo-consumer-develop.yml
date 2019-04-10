@@ -32,7 +32,7 @@ security:
       clientSecret: thisissecret
       accessTokenUri: http://192.168.40.19:8887/oauth/token
       userAuthorizationUri: http://192.168.40.19:8887/oauth/authorize
-      pre-established-redirect-uri: http://192.168.40.19:8887/login
+#      pre-established-redirect-uri: http://192.168.40.19:8887/login
     resource:
       jwt:
         key-uri: http://192.168.40.19:8887/oauth/token_key 
