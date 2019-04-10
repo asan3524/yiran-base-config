@@ -30,12 +30,12 @@ security:
       scope: webclient
       clientId: eagleeye
       clientSecret: thisissecret
-      accessTokenUri: http://127.0.0.1:8887/oauth/token
-      userAuthorizationUri: http://127.0.0.1:8887/oauth/authorize
-      pre-established-redirect-uri: http://127.0.0.1:8887/login
+      accessTokenUri: http://192.168.40.19:8887/oauth/token
+      userAuthorizationUri: http://192.168.40.19:8887/oauth/authorize
+      pre-established-redirect-uri: http://192.168.40.19:8887/login
     resource:
       jwt:
-        key-uri: http://127.0.0.1:8887/oauth/token_key 
+        key-uri: http://192.168.40.19:8887/oauth/token_key 
 
 # 指定服务负载均衡策略为轮询
 # BestAvailableRule 选择一个最小的并发请求的server
