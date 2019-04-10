@@ -57,17 +57,17 @@ feign:
 #Hystrix THREAD模式下，feign无法找到上下文中的令牌，导致令牌无法传递
 #方案一：自定义HystrixConcurrencyStrategy
 #方案二：将线程策略设置为SEMAPHORE（官方不推荐）
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 3000
-          strategy: SEMAPHORE
-
 #hystrix:
-#  shareSecurityContext: true
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 3000
+#          strategy: SEMAPHORE
+
+hystrix:
+  shareSecurityContext: true
   
 management:
   endpoints:
