@@ -67,7 +67,7 @@ feign:
 #          strategy: SEMAPHORE
 
 hystrix:
-  share-security-context: true
+  shareSecurityContext: true
   
 management:
   endpoints:
