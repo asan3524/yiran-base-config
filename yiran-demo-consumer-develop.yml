@@ -3,7 +3,12 @@ spring:
     bus:
       ack:
         destination-service: ${spring.application.name}
-        
+
+server:
+  session:
+    cookie:
+      name: ${spring.application.name}-session
+              
 # 单机模式配置
 ---
 spring:
@@ -32,7 +37,6 @@ security:
       clientSecret: thisissecret
       accessTokenUri: http://192.168.40.19:8887/oauth/token
       userAuthorizationUri: http://192.168.40.19:8887/oauth/authorize
-      pre-established-redirect-uri: http://192.168.40.19:8887/login
     resource:
       jwt:
         key-uri: http://192.168.40.19:8887/oauth/token_key 
@@ -57,14 +61,14 @@ feign:
 #Hystrix THREAD模式下，feign无法找到上下文中的令牌，导致令牌无法传递
 #方案一：自定义HystrixConcurrencyStrategy
 #方案二：将线程策略设置为SEMAPHORE（官方不推荐）
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 3000
-          strategy: SEMAPHORE
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 3000
+#          strategy: SEMAPHORE
 
 #hystrix:
 #  shareSecurityContext: true
@@ -111,7 +115,7 @@ security:
       clientSecret: thisissecret
       accessTokenUri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token
       userAuthorizationUri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/authorize
-      pre-established-redirect-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/login
+#      pre-established-redirect-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/login
     resource:
       jwt:
         key-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token_key 
