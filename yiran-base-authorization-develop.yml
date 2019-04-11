@@ -7,7 +7,7 @@ spring:
 server:
   session:
     cookie:
-      name: ${spring.application.name}-session
+      name: OAUTH2SESSION
       
 # 单机模式配置
 ---
