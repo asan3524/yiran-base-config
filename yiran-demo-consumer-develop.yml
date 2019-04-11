@@ -70,8 +70,8 @@ feign:
 #            timeoutInMilliseconds: 3000
 #          strategy: SEMAPHORE
 
-hystrix:
-  shareSecurityContext: true
+#hystrix:
+#  shareSecurityContext: true
   
 management:
   endpoints:
@@ -84,7 +84,7 @@ management:
 logging:
   level:
     org.springframework.web: INFO
-    root: DEBUG
+    root: INFO
     org.hibernate: INFO
           
 # 集群模式配置
