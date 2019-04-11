@@ -4,10 +4,10 @@ spring:
       ack:
         destination-service: ${spring.application.name}
 
-#server:
-#  session:
-#    cookie:
-#      name: ${spring.application.name}-session
+server:
+  session:
+    cookie:
+      name: ${spring.application.name}-session
               
 # 单机模式配置
 ---
@@ -29,8 +29,6 @@ eureka:
    
 security:
   oauth2:
-    sso: 
-      loginPath: http://192.168.40.19:8887/login
     authorization:
       matchers: /swagger-ui.html, /webjars/**, /swagger-resources/**, /v2/api-docs, /static/**
     client:
@@ -109,8 +107,6 @@ eureka:
 
 security:
   oauth2:
-    sso: 
-      loginPath: http://yiran-base-oauth2.base.svc.cluster.local:8887/login
     authorization:
       matchers: /swagger-ui.html, /webjars/**, /swagger-resources/**, /v2/api-docs, /static/**
     client:
