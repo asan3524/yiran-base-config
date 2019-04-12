@@ -112,11 +112,11 @@ security:
       scope: webclient
       clientId: eagleeye
       clientSecret: thisissecret
-      accessTokenUri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token
-      userAuthorizationUri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/authorize
+      accessTokenUri: http://yiran-base-authorization.base.svc.cluster.local:8887/oauth/token
+      userAuthorizationUri: http://yiran-base-authorization.base.svc.cluster.local:8887/oauth/authorize
     resource:
       jwt:
-        key-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token_key
+        key-uri: http://yiran-base-authorization.base.svc.cluster.local:8887/oauth/token_key
 
 management:
   endpoints:
