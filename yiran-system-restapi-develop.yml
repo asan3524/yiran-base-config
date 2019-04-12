@@ -51,7 +51,7 @@ eureka:
 security:
   oauth2:
     authorization:
-      matchers: /swagger-ui.html, /webjars/**, /swagger-resources/**, /v2/api-docs, /static/**
+      matchers: /load/**, /swagger-ui.html, /webjars/**, /swagger-resources/**, /v2/api-docs, /static/**
     client:
       scope: webclient
       clientId: eagleeye
@@ -121,7 +121,7 @@ eureka:
 security:
   oauth2:
     authorization:
-      matchers: /swagger-ui.html, /webjars/**, /swagger-resources/**, /v2/api-docs, /static/**
+      matchers: /load/**, /swagger-ui.html, /webjars/**, /swagger-resources/**, /v2/api-docs, /static/**
     client:
       scope: webclient
       clientId: eagleeye
