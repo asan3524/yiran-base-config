@@ -23,6 +23,8 @@ spring:
 security:
   oauth2:
     authorization:
+      loginurl: /login
+      deniedurl: /error/403
       matchers: /images/**, /checkcode, /scripts/**, /styles/**
       
 #配置鉴权服务信息
@@ -51,8 +53,8 @@ spring:
 
   redis:
     redisson: false
-    host: 192.168.40.161
-    port: 30379
+    host: redis-standalone.base.svc.cluster.local
+    port: 6379
 
 security:
   oauth2:

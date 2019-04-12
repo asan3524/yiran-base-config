@@ -3,13 +3,20 @@ spring:
     bus:
       ack:
         destination-service: ${spring.application.name}
-        
+
 # 单机模式配置
 ---
 spring:
   profiles: develop
-  
+
+  redis:
+    redisson: false
+#    host: 114.67.224.99
+#    port: 6379
+    host: 192.168.40.161
+    port: 30379
   jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     database: mysql
     generate-ddl: false
     show-sql: true
@@ -53,14 +60,16 @@ security:
       userAuthorizationUri: http://127.0.0.1:8887/oauth/authorize
     resource:
       jwt:
-        key-uri: http://127.0.0.1:8887/oauth/token_key
+        key-uri: http://127.0.0.1:8887/oauth/token_key 
 
 management:
   endpoints:
+    health:
+      show-details: always
     web:
       exposure:
         include: hystrix.stream, health, info
-                     
+                
 logging:
   level:
     org.springframework.web: INFO
@@ -72,6 +81,11 @@ logging:
 spring:
   profiles: production
 
+  redis:
+    redisson: false
+    host: redis-standalone.base.svc.cluster.local
+    port: 6379
+    
   jpa:
     database: mysql
     generate-ddl: false
@@ -116,14 +130,16 @@ security:
       userAuthorizationUri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/authorize
     resource:
       jwt:
-        key-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token_key
+        key-uri: http://yiran-base-oauth2.base.svc.cluster.local:8887/oauth/token_key 
 
 management:
   endpoints:
+    health:
+      show-details: always
     web:
       exposure:
         include: hystrix.stream, health, info
-                
+        
 logging:
   level:
     org.springframework.web: INFO
