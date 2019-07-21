@@ -13,7 +13,7 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://192.168.5.133:${server.port}/eureka/
+      defaultZone: http://127.0.0.1:${server.port}/eureka/
 logging:
   level:
     org.springframework.web: INFO
