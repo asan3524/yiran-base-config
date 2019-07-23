@@ -16,8 +16,8 @@ spring:
   
   redis:
     redisson: false
-    host: 192.168.40.161
-    port: 30379
+    host: 127.0.0.1
+    port: 6379
     
 eureka:
   instance:
