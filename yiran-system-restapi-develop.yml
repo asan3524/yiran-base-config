@@ -24,7 +24,7 @@ spring:
       ddl-auto: create
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://120.79.188.227:3306/microservice?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
+    url: jdbc:mysql://120.79.188.227:3306/db_sc?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
     username: db_sc
     password: bitlife_db_sc_888T3!
     druid:
