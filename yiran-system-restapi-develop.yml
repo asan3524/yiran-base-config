@@ -18,10 +18,10 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     database: mysql
-    generate-ddl: true
+    generate-ddl: false
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://120.79.188.227:3306/db_sc?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
