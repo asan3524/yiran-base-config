@@ -1,6 +1,6 @@
 docker run -p 6379:6379  -d redis redis-server --appendonly yes
 
-docker run -p 5672:5672 -p 15672:15672 -d  --name rabbitmq rabbitmq:3.7-management
+docker run -p 5672:5672 -p 15672:15672 -d  --name rabbitmq-server rabbitmq:3.7-management
 
 docker run -p 8761:8761  -d yiran-base-eureka-image yiran-base-eureka
 

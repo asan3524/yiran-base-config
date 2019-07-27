@@ -13,20 +13,20 @@ spring:
     redisson: false
 #    host: 114.67.224.99
 #    port: 6379
-    host: 192.168.40.161
-    port: 30379
+    host: 127.0.0.1
+    port: 6379
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     database: mysql
     generate-ddl: false
     show-sql: true
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://114.67.224.99:3306/microservice?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
-    username: microservice
-    password: bitlife_microservice_888T3!
+    url: jdbc:mysql://120.79.188.227:3306/microservice?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
+    username: db_sc
+    password: bitlife_db_sc_888T3!
     druid:
       stat-view-servlet:
         enabled: true
