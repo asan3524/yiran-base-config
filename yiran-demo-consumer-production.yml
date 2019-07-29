@@ -5,9 +5,10 @@ spring:
         destination-service: ${spring.application.name}
 
 server:
-  session:
-    cookie:
-      name: OAUTH2SESSION
+  servlet:
+    session:
+      cookie:
+        name: OAUTH2SESSION
               
 # 单机模式配置
 ---
